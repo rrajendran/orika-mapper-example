@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class PersonMapper extends ConfigurableMapper {
 
-
     @Override
     protected void configure(MapperFactory factory) {
         factory.classMap(PersonSource.class, PersonDestination.class)
@@ -19,4 +18,5 @@ public class PersonMapper extends ConfigurableMapper {
                 .byDefault()
                 .register();
     }
+
 }

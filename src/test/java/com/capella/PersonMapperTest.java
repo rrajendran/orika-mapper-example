@@ -21,7 +21,7 @@ public class PersonMapperTest {
     private MapperFacade mapperFacade;
 
     @Test
-    public void testMapper() {
+    public void testMapperAtoB() {
         PersonSource source = new PersonSource("ramesh", "rajendran");
         PersonDestination personDestination = mapperFacade.map(source, PersonDestination.class);
         assertThat(personDestination.getGivenName(), is("ramesh"));
@@ -30,10 +30,10 @@ public class PersonMapperTest {
 
 
     @Test
-    public void testMapperBidirectional() {
+    public void testMapperBtoA() {
         PersonDestination source = new PersonDestination("ramesh", "rajendran");
-        PersonSource personDestination = mapperFacade.map(source, PersonSource.class);
-        assertThat(personDestination.getFirstName(), is("ramesh"));
-        assertThat(personDestination.getLastName(), is("rajendran"));
+        PersonSource destination = mapperFacade.map(source, PersonSource.class);
+        assertThat(destination.getFirstName(), is("ramesh"));
+        assertThat(destination.getLastName(), is("rajendran"));
     }
 }
